@@ -16,20 +16,21 @@ import com.example.prueba2.ui.theme.Prueba2Theme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        //enableEdgeToEdge()
         setContent {
             Prueba2Theme {
-                Scaffold( modifier = Modifier.fillMaxSize() ) { innerPadding ->
-                    Greeting(
+                Text(text ="hello world!")
+                /*Scaffold( modifier = Modifier.fillMaxSize() ) { innerPadding ->
+                   Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
-                }
+                }*/
             }
         }
     }
 }
-
+/*
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
@@ -44,4 +45,4 @@ fun GreetingPreview() {
     Prueba2Theme {
         Greeting("Android")
     }
-}
+}/*
