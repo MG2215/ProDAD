@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">prueba2</string>
     <string name="example_text">prueba2 > Hello World from Strings.xml</string>
+    <string name="Texto">prueba2 > Las vacunas contra la COVID-19 proporcionan una sólida protección frente al riesgo de enfermedad grave o muerte. Aunque una persona aún puede contraer la COVID-19 después de vacunarse, es más probable que tenga síntomas leves o que no tenga.</string>
 </resources>
