@@ -48,15 +48,12 @@ import com.example.prueba2.ui.theme.Prueba2Theme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        enableEdgeToEdge()
-        setContent {
-            Prueba2Theme {
-                ComposableMultiScreenApp()
+
             }
         }
     }
 }
-
+/*
 @Composable
 fun ComposableMultiScreenApp() {
     val navController = rememberNavController()
@@ -70,6 +67,4 @@ fun SetupNavGraph(navController: NavHostController) {
         composable("Home_Screens") { HomeScreens(navController) }
         composable("Test_Screen") { TestScreen(navController) }
     }
-}
-
 
