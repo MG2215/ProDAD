@@ -28,19 +28,22 @@ import androidx.compose.ui.platform.LocalContext
 import android.widget.Toast
 import androidx.compose.material.icons.filled.List
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
+import androidx.navigation.NavHostController
 import com.example.prueba2.R
 
-@Preview(showBackground = true)
 @Composable
-fun PreviewYouTubeUI() {
+fun PreviewYouTubeUI(navController: NavHostController) {
     Column(modifier = Modifier.fillMaxSize()) {
         topbar()
         BottomCategories()
         SponsoredCard()
+        ShortsSection()
         BottomNavigationBar()
     }
 }
-
+@Preview(showBackground = true)
 @Composable
 fun topbar() {
     val density = LocalDensity.current
@@ -82,7 +85,7 @@ fun topbar() {
         }
     }
 }
-
+@Preview(showBackground = true)
 @Composable
 fun BottomCategories() {
     val categories = listOf(
@@ -115,7 +118,7 @@ fun CategoryChip(category: String) {
         Text(text = category, color = Color.White, fontSize = 14.sp)
     }
 }
-
+@Preview(showBackground = true)
 @Composable
 fun SponsoredCard() {
     val context = LocalContext.current
@@ -162,7 +165,98 @@ fun SponsoredCard() {
         }
     }
 }
+@Preview(showBackground = true)
+@Composable
+fun ShortsSection() {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(5.dp)
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.shorts_icon), // Logo de YouTube Shorts
+                contentDescription = "YouTube Shorts",
+                modifier = Modifier.size(28.dp).padding(end = 8.dp)
+            )
+            Text(
+                text = "Shorts",
+                style = androidx.compose.ui.text.TextStyle(
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp,
+                    color = Color.Black
+                )
+            )
+        }
 
+        Spacer(modifier = Modifier
+            .height(8.dp))
+
+        LazyRow(
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            items(5) { index ->
+                val imageRes = when (index) {
+                    0 -> R.drawable.t1
+                    1 -> R.drawable.t2
+                    2 -> R.drawable.t3
+                    3 -> R.drawable.t4
+                    else -> R.drawable.t5
+                }
+                val imageName = when (index) {
+                    0 -> "GLADIADOR II"
+                    1 -> "Presidenta Claudia pausa ley del ISSSTE"
+                    2 -> "Empeora la salud del Papa Francisco "
+                    3 -> "Donal Trump: Es mejor golfo de America"
+                    else -> "Mejor haz esto"
+                }
+                ImageShort(imageRes, imageName)
+            }
+        }
+
+        Spacer(modifier = Modifier
+            .height(8.dp))
+
+    }
+}
+@Composable
+fun ImageShort(imageRes: Int, title: String) {
+    Column(
+        modifier = Modifier
+            .width(100.dp)
+            .padding(4.dp)
+            .background(Color.White, shape = MaterialTheme.shapes.medium)
+            .padding(4.dp)
+    ) {
+        Image(
+            painter = painterResource(id = imageRes),
+            contentDescription = title,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(100.dp),
+            contentScale = ContentScale.Crop
+        )
+
+        Spacer(modifier = Modifier
+            .height(4.dp))
+        Text(
+            text = title,
+            style = androidx.compose.ui.text.TextStyle(
+                fontWeight = FontWeight.Bold,
+                fontSize = 14.sp
+            )
+        )
+    }
+}
+
+@Preview(showBackground = true)
 @Composable
 fun BottomNavigationBar() {
     val context = LocalContext.current

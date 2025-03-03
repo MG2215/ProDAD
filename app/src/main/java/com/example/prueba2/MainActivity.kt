@@ -69,7 +69,10 @@ fun SetupNavGraph(navController: NavHostController) {
         composable("Main_Menu") { MainMenuScreens(navController) }
         composable("Home_Screens") { HomeScreens(navController) }
         composable("Test_Screen") { TestScreen(navController) }
+        /*composable("Example interface") { youtubexample(navController) }*/
     }
 }
+
+
 
 
