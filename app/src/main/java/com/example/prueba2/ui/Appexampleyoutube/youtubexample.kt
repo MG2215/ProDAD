@@ -34,7 +34,7 @@ import androidx.navigation.NavHostController
 import com.example.prueba2.R
 
 @Composable
-fun PreviewYouTubeUI(navController: NavHostController) {
+fun youtubeexample (navController: NavHostController) {
     Column(modifier = Modifier.fillMaxSize()) {
         topbar()
         BottomCategories()
