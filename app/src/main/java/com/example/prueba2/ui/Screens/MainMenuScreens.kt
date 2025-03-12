@@ -30,5 +30,11 @@ fun MainMenuScreens(navController: NavHostController) {
         ) {
             Text("Go to Test Screen")
         }
+            Text("Youtube example")
+            Button(
+                onClick = { navController.navigate("Example interface") }
+            ) {
+                Text("Go to Youtube Screen ")
+            }
+        }
     }
-}
